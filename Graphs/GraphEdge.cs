@@ -6,9 +6,9 @@ public class GraphEdge
 
     public int End { get; }
     
-    public int Weight { get; }
+    public double Weight { get; }
 
-    public GraphEdge(int start, int end, int weight)
+    public GraphEdge(int start, int end, double weight)
     {
         Start = start;
         End = end;

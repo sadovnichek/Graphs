@@ -5,18 +5,21 @@ public class Graph
     public readonly List<int> Vertexes = new();
 
     public readonly List<GraphEdge> Edges = new();
+    
+    public double[,] Matrix { get; }
 
     public Graph()
     {  }
     
-    public Graph(int[,] matrix)
+    public Graph(double[,] matrix)
     {
-        Vertexes = Enumerable.Range(1, matrix.GetLength(0)).ToList();
+        Matrix = matrix;
+        Vertexes = Enumerable.Range(0, matrix.GetLength(0)).ToList();
         for(int i = 0; i < matrix.GetLength(0); i++)
         {
             for(int j = 0; j < matrix.GetLength(0); j++)
             {
-                AddEdge(new GraphEdge(i+1, j+1, matrix[i, j]));
+                AddEdge(new GraphEdge(i, j, matrix[i, j]));
             }
         }
     }
